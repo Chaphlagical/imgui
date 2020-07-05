@@ -1,4 +1,4 @@
-project "imgui"
+project "ImGui"
 	kind "StaticLib"
 	language "C++"
 
@@ -11,13 +11,19 @@ project "imgui"
         "imgui.h",
         "imgui.cpp",
         "imgui_draw.cpp",
-        "imgui_internal.cpp",
+        "imgui_internal.h",
         "imgui_widgets.cpp",
         "imgui_rectpack.h",
         "imgui_textedit.h",
         "imgui_truetype.h",
         "imgui_demo.cpp"
 	}
+
+    vpaths
+	{
+        ["Source"]="**.cpp",
+        ["Header"]="**.h"
+    }
 
 	filter "system:windows"
 		systemversion "latest"
@@ -31,3 +37,4 @@ project "imgui"
 	filter "configurations:Release"
 		runtime "Release"
 		optimize "on"
+        buildoptions "/MT"
